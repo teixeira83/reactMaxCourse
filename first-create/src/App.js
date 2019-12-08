@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium from 'radium';
 import Person from './Person/Person';
 
 class App extends Component{
@@ -45,16 +46,21 @@ togglePersonsHandler = () => {
 
 render(){
   const style = {
-    backgroundColor: 'white',
+    backgroundColor: 'green',
+    color: 'white',
     font: 'inherit',
     border: '1x solid blue',
     padding: '8px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':hover': {
+      backgroundColor: 'lightgreen',
+      color: 'black'
+    }
   };
 
   let persons = null;
 
-  if(this.state.showPersons === true) {
+  if(this.state.showPersons) {
     persons = (
       <div>
         {this.state.persons.map((person, index) => {
@@ -67,6 +73,12 @@ render(){
         })}
       </div>
     );
+
+    style.backgroundColor = 'red'
+    style[':hover'] = {
+      backgroundColor: 'salmon',
+      color: 'black'
+    }
   }
 
   return (
@@ -81,4 +93,4 @@ render(){
   }
 }
 
-export default App;
+export default Radium(App);
