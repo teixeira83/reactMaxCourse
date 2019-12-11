@@ -74,7 +74,7 @@ render(){
       </div>
     );
 
-    style.backgroundColor = 'red'
+    
     style[':hover'] = {
       backgroundColor: 'salmon',
       color: 'black'
@@ -86,7 +86,6 @@ render(){
       <div className="App">
       <h1>Hello World!</h1>
       <button 
-        style={style}
         onClick={this.togglePersonsHandler}>Toggle Persons</button>
       {persons}
       </div>
